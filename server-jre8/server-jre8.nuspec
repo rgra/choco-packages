@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>server-jre8</id>
+    <version>8.0.92</version>
+    <title>Server JRE (Java SE Runtime Environment)</title>
+     <authors>Oracle</authors>
+    <owners>rgra</owners>
+    <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
+    <projectUrl>http://www.java.com</projectUrl>
+    <docsUrl>http://www.oracle.com/technetwork/java/javase/overview/index.html</docsUrl>
+    <iconUrl>http://cdn.rawgit.com/chocolatey/chocolatey-coreteampackages/50fd97744110dcbce1acde889c0870599c9d5584/icons/java.svg</iconUrl>
+    <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/server-jre8</packageSourceUrl>
+    <bugTrackerUrl>http://bugs.java.com</bugTrackerUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <dependency id="wget" version=" 1.17.0.0" />
+   </dependencies>
+    <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
+    <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer. 
+
+### Note
+
+This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.8.0_92".
+
+If you wish to unpack to an alternate directory, use the 'InstallationPath' parameter. Example: choco install server-jre8 -PackageParameters "/InstallationPath:c:\Program Files" -y
+
+The installation will also set the JAVA\_HOME environment variable to the destination directory if not present yet and add %JAVA\_HOME%/bin to the PATH environment.
+
+This package is only available in 64-bit.
+
+### Parameters
+
+The following package parameters can be set:
+
+ * `/InstallationPath` - Install to a different destination folder. Default: C:\tools\Java\server-jre
+ * `/Force` - Force setting JAVA_HOME to the new version even if the variable was already set
+ * `/Machine` - Set JAVA_HOME and PATH on 'Machine' level, instead of 'User' level
+
+These parameters can be passed to the installer with the use of `-packageParameters `.
+For example: choco install server-jre8`-packageParameters '"/InstallationPath:C:\tools\Java /Force /Machine"'`.
+
+### Install
+</description>
+    <releaseNotes>http://www.oracle.com/technetwork/java/javase/jdk-relnotes-index-2162236.html</releaseNotes >
+    <tags>java server runtime environment jre admin</tags>
+  </metadata>
+</package>
