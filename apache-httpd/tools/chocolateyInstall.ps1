@@ -1,6 +1,9 @@
 $packageName = $env:chocolateyPackageName
-$vcNumber = "14"
+$vcNumber = "11"
 $releaseNumber = "0"
+
+
+http://www.apachehaus.com/downloads/httpd-2.4.20-x86.zip
 
 if(!$PSScriptRoot){ $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent }
 $optionsFile = (Join-Path $PSScriptRoot 'options.xml')
@@ -10,9 +13,9 @@ $unzipParameters = @{
     packageName = $env:chocolateyPackageName
     url = "http://www.apachehaus.com/downloads/httpd-$($env:chocolateyPackageVersion)-x86-vc$vcNumber.zip" 
     url64bit = "http://www.apachehaus.com/downloads/httpd-$($env:chocolateyPackageVersion)-x64-vc$vcNumber.zip" 
-    checksum = '4a002ca4649e9999ddb332da9d16fc1cd3e3cc95';
+    checksum = '9132c1aabdaacaf96895cb247f171c1ea4125eda';
     checksumType = 'sha1';
-    checksum64 = 'c35c1ff8e2746556ac26b43bc13a4750b57f83a0';
+    checksum64 = 'b6ac8fedebad36247baeaaebebcbd51a0e608e48';
     checksumType64 = 'sha1';
 }
 
