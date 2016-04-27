@@ -2,9 +2,6 @@ $packageName = $env:chocolateyPackageName
 $vcNumber = "11"
 $releaseNumber = "0"
 
-
-http://www.apachehaus.com/downloads/httpd-2.4.20-x86.zip
-
 if(!$PSScriptRoot){ $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent }
 $optionsFile = (Join-Path $PSScriptRoot 'options.xml')
 
