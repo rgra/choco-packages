@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre8</id>
-    <version>8.0.92</version>
+    <version>8.0.101</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
      <authors>Oracle</authors>
     <owners>rgra</owners>
@@ -21,7 +21,7 @@
 
 ### Note
 
-This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.8.0_92".
+This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.8.0_101".
 
 If you wish to unpack to an alternate directory, use the 'InstallationPath' parameter. Example: choco install server-jre8 -PackageParameters "/InstallationPath:c:\Program Files" -y
 
