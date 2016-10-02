@@ -108,7 +108,7 @@ Get-ChocolateyUnzip $tarFile $InstallationPath
 $newJavaHome = Join-Path $InstallationPath $folderVersion
 $oldJavaHome = Get-EnvironmentVariable "JAVA_HOME" $EnvVariableType
 
-if(($oldJavaHome -eq $null) -or $ForceEnvVars) {
+if(($oldJavaHome -eq "") -or $ForceEnvVars) {
    Write-Host "Setting JAVA_HOME to $newJavaHome" 
    Install-ChocolateyEnvironmentVariable -variableName "JAVA_HOME" -variableValue $newJavaHome -variableType $EnvVariableType
 }
