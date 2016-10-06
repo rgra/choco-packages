@@ -1,6 +1,6 @@
 ﻿$packageName = $env:chocolateyPackageName
-$buildNumber = "14"
-$checksumMD5 = "a852c7c6195e2ff8d0f0582d4d12a9b0"
+$buildNumber = "13"
+$checksum = "9fd7206aaadc82c5944b9d654d642910a2563ace1115c92332f9ca3b22da8ef8"
 
 #8.0.xx to jdk1.8.0_xx
 $versionArray = $env:chocolateyPackageVersion.Split(".")
@@ -82,7 +82,7 @@ if ([System.IO.File]::Exists($tarGzFile)) {
     Write-Debug "Checking if existing file $tarGzFile matches checksum"
     #Check sum of existing file
     Try {
-        Get-ChecksumValid $tarGzFile $checksumMD5 -ErrorAction Stop
+        Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256 -ErrorAction Stop
     } 
     Catch{
         Write-Debug "Checksum failed, deleting old file $tarGzFile"
@@ -97,7 +97,7 @@ if (![System.IO.File]::Exists($tarGzFile)) {
   #Download file. Must set Cookies to accept license
   Write-Debug "Downloading file $tarGzFile"
   .$wget --quiet --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" $url -O $tarGzFile
-  Get-ChecksumValid $tarGzFile $checksumMD5
+  Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
 }
 
 #Extract gz to .tar File
@@ -108,7 +108,7 @@ Get-ChocolateyUnzip $tarFile $InstallationPath
 $newJavaHome = Join-Path $InstallationPath $folderVersion
 $oldJavaHome = Get-EnvironmentVariable "JAVA_HOME" $EnvVariableType
 
-if(($oldJavaHome -eq $null) -or $ForceEnvVars) {
+if(($oldJavaHome -eq "") -or $ForceEnvVars) {
    Write-Host "Setting JAVA_HOME to $newJavaHome" 
    Install-ChocolateyEnvironmentVariable -variableName "JAVA_HOME" -variableValue $newJavaHome -variableType $EnvVariableType
 }
