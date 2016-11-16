@@ -1,6 +1,7 @@
 ﻿$packageName = $env:chocolateyPackageName
-$buildNumber = "13"
-$checksum = "9fd7206aaadc82c5944b9d654d642910a2563ace1115c92332f9ca3b22da8ef8"
+# The buildNumber should be easier to determine or pass from the nuspec
+$buildNumber = "15"
+$checksum = "0a4895219f14b6ac7470f4711bfcc1549826bad6d1ff9f03107a10f8bbf5fa91"
 
 #8.0.xx to jdk1.8.0_xx
 $versionArray = $env:chocolateyPackageVersion.Split(".")
@@ -116,6 +117,7 @@ else {
    Write-Debug "JAVA_HOME already set to $oldJavaHome."
 }
 
+# Need to do an existance check to see if the variable version is already in PATH
 Install-ChocolateyPath '%JAVA_HOME%\bin' $EnvVariableType
 
 #Remove-Item -Recurse $tempDir
