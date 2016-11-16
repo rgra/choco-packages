@@ -21,7 +21,7 @@
 
 ### Note
 
-This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.8.0_101".
+This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.8.0_{version}".
 
 If you wish to unpack to an alternate directory, use the `InstallationPath` parameter. Example: 
 `choco install server-jre8 -PackageParameters "/InstallationPath:c:\Program Files" -y`
