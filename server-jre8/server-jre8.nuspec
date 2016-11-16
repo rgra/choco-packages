@@ -13,8 +13,6 @@
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/server-jre8</packageSourceUrl>
     <bugTrackerUrl>http://bugs.java.com</bugTrackerUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <dependencies>
-   </dependencies>
     <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
     <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer. 
 
