@@ -21,7 +21,20 @@
 
 ### Note
 
-This is just a metapackage for the latest Server JRE (currenly Server JRE 8). Have a look at the [server-jre8 package](/packages/server-jre8) for more details.
+This is just a metapackage for the latest Server JRE (currently Server JRE 8). Have a look at the [server-jre8 package](/packages/server-jre8) for more details.
+      
+### Parameters (for server-jre8)
+
+The following package parameters can be set:
+
+ * `/InstallationPath` - Install to a different destination folder. Default: `C:\tools\Java\server-jre`
+ * `/Force` - Force setting JAVA_HOME to the new version even if the variable was already set
+ * `/Machine` - Set JAVA_HOME and PATH on 'Machine' level, instead of 'User' level
+
+These parameters can be passed to the installer with the use of `--packageParameters` but since these parameters
+don't directly affect the virtual package, we need to add `--paramsglobal` to pass them to the target/dependent server-jre8.
+
+For example: `choco install server-jre --paramsglobal --packageParameters '"/InstallationPath:C:\tools\Java /Force /Machine"'`.
 </description>
     <releaseNotes>http://www.oracle.com/technetwork/java/javase/jdk-relnotes-index-2162236.html</releaseNotes >
     <tags>java server runtime environment jre admin</tags>
