@@ -28,9 +28,11 @@ $arguments = @{}
 $packageParameters = $env:chocolateyPackageParameters
 
 # Default value
-$InstallationPath = Join-Path (Get-BinRoot) "Java/server-jre"
+# uses deprecated Get-BinRoot
+#$InstallationPath = Join-Path (Get-BinRoot) "Java/server-jre"
+$InstallationPath = Join-Path (Get-ToolsLocation) "Java/server-jre"
 $ForceEnvVars = $false
-$EnvVariableType = "User"
+$EnvVariableType = "Machine"
 
 # Now parse the packageParameters using good old regular expression
 if ($packageParameters) {
@@ -59,9 +61,9 @@ if ($packageParameters) {
         Write-Host "Force Argument Found"
         $ForceEnvVars = $true
     }
-    if ($arguments.ContainsKey("Machine")) {
-        Write-Host "Machine Argument Found"
-        $EnvVariableType = "Machine"
+    if ($arguments.ContainsKey("User")) {
+        Write-Host "User Argument Found"
+        $EnvVariableType = "User"
     }
 
 } else {
@@ -69,6 +71,9 @@ if ($packageParameters) {
 }
 
 Write-Debug "Installing to $InstallationPath, Params: ForceEnvVars=$ForceEnvVars, EnvVariableType=$EnvVariableType"
+
+# Future state, write install options file to use in uninstall (ie /Machine or /User /InstallationPath)
+# This would be easier if installed with Install-ChocolateyZipFile and writing the parameters to $toolsDir aka Invocation.
 
 #Create Temp Folder
 $chocTempDir = Join-Path $env:TEMP "chocolatey"
@@ -91,15 +96,41 @@ if ([System.IO.File]::Exists($tarGzFile)) {
     }
 }
 
-if (![System.IO.File]::Exists($tarGzFile)) {
-  $wget = Join-Path "$env:ChocolateyInstall" '\bin\wget.exe'
-  Write-Debug "wget found at `'$wget`'"
+# Added some .NET code to remove the dependency on wget
+# If chocolatey >= 0.9.10 could use Get-ChocolateyWebFile with $options
+# Currently investigating a bug where it doesn't seem to pass the cookie in properly
+#if ($env:ChocolateyVersion -gt "0.9.10") {
+#$options =
+#@{
+#  Headers = @{
+#    Cookie = " oraclelicense=accept-securebackup-cookie";
+#  }
+#}
+#
+#Write-Debug "Downloading file $tarGzFile using Get-ChocolateyWebFile"
+#Get-ChocolateyWebFile -PackageName $packageName -FileFullPath $tarGzFile -Url $url -Checksum $checksum -ChecksumType SHA256 -Options $options
+# } # End Get-ChocolateyWebFile
+#
+# } else {
+# Native .NET download for choco < 0.9.10
+Write-Debug "Downloading file $tarGzFile using System.Net.WebClient"
+$wc = New-Object System.Net.WebClient
+$wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie"); 
+$wc.DownloadFile($url, $tarGzFile)
+Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
+# } # End native .NET block
 
-  #Download file. Must set Cookies to accept license
-  Write-Debug "Downloading file $tarGzFile"
-  .$wget --quiet --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" $url -O $tarGzFile
-  Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
-}
+# Wget dependency block {
+#if (![System.IO.File]::Exists($tarGzFile)) {
+#  $wget = Join-Path "$env:ChocolateyInstall" '\bin\wget.exe'
+#  Write-Debug "wget found at `'$wget`'"
+#
+#  #Download file. Must set Cookies to accept license
+#  Write-Debug "Downloading file $tarGzFile"
+#  .$wget --quiet --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" $url -O $tarGzFile
+#  Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
+#}
+# } # End wget dependency block
 
 #Extract gz to .tar File
 Get-ChocolateyUnzip $tarGzFile $tempDir
@@ -119,5 +150,5 @@ else {
 
 # Need to do an existance check to see if the variable version is already in PATH
 Install-ChocolateyPath '%JAVA_HOME%\bin' $EnvVariableType
-
+Get-EnvironmentVariable -Name 'PATH' -Scope $EnvVariableType -PreserveVariables
 #Remove-Item -Recurse $tempDir
