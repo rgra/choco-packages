@@ -3,8 +3,10 @@
 $buildNumber = "15"
 $checksum = "0a4895219f14b6ac7470f4711bfcc1549826bad6d1ff9f03107a10f8bbf5fa91"
 
+# Discard any -pre/-beta/-testing appended to avoid releasing an unfinished on Chocolatey.org
+$semanticVersion = $env:chocolateyPackageVersion.Split("-")[0]
 #8.0.xx to jdk1.8.0_xx
-$versionArray = $env:chocolateyPackageVersion.Split(".")
+$versionArray = $semanticVersion.Split(".")
 $majorVersion = $versionArray[0]
 $minorVersion = $versionArray[1]
 $updateVersion = $versionArray[2]
