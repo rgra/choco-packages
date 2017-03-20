@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>apache-httpd</id>
-    <version>2.4.20</version>
+    <version>2.4.25</version>
     <title>Apache HTTP Server Project</title>
      <authors>Apache Software Foundation</authors>
     <owners>rgra</owners>
@@ -15,7 +15,7 @@
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/apache-httpd</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-       <dependency id="vcredist2012" version="11.0.61030" />
+       <dependency id="vcredist2012" version="11.0.61031" />
    </dependencies>
     <summary>The Apache HTTP Server Project is a collaborative software development effort aimed at creating a robust, commercial-grade, featureful, and freely-available source code implementation of an HTTP (Web) server.</summary>
     <description>Apache HTTP Web Server for Windows.
@@ -25,7 +25,7 @@
 This package will unzip the latest windows binary provided at Apache Haus (http://www.apachehaus.com/) with OpenSSL on Visual Studio 2012 (VC11): 
 with OpenSSL 1.0.2g, nghttp 1.9.2, Zlib 1.2.8 (mod_deflate), PCRE 8.38, APR 1.5.2, APR-Util 1.5.4, IPv6 and TLS SNI enabled
 
-The complete path of the package will be ''%unzipLocation%\Apache24'' (default: C:\tools\Apache\httpd-2.4.20\Apache24).
+The complete path of the package will be ''%unzipLocation%\Apache24'' (default: C:\tools\Apache\httpd-2.4.25\Apache24).
 
 A service with a given name is created with the default config location.
 
@@ -35,7 +35,7 @@ This package needs either a Java Runtime to run. The package has no dependencies
 
 The following package parameters can be set:
 
- * `/unzipLocation` - Unzip to a different destination folder. Default: C:\tools\Apache\httpd-2.4.20
+ * `/unzipLocation` - Unzip to a different destination folder. Default: C:\tools\Apache\httpd-2.4.25
  * `/serviceName` - The name of the windows service which will be create. Default: Apache
 
 These parameters can be passed to the installer with the use of `-packageParameters `.
