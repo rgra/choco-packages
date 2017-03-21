@@ -15,7 +15,7 @@
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/apache-httpd</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-       <dependency id="vcredist2012" version="11.0.61030" />
+       <dependency id="vcredist2012" version="11.0" />
        <dependency id="chocolatey-core.extension" version="1.2.0" />
    </dependencies>
     <summary>The Apache HTTP Server Project is a collaborative software development effort aimed at creating a robust, commercial-grade, featureful, and freely-available source code implementation of an HTTP (Web) server.</summary>
