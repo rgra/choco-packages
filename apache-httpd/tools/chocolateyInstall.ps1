@@ -1,18 +1,18 @@
 $packageName = $env:chocolateyPackageName
-$vcNumber = "11"
+$vcNumber = "14"
 $releaseNumber = "0"
 
 if(!$PSScriptRoot){ $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent }
 $optionsFile = (Join-Path $PSScriptRoot 'options.xml')
 
-#http://www.apachehaus.com/downloads/httpd-2.4.18-x64-vc11-r2.zip
+#http://www.apachehaus.com/downloads/httpd-2.4.25-x64-vc14-r1.zip
 $unzipParameters = @{
     packageName = $env:chocolateyPackageName
     url = "http://www.apachehaus.com/downloads/httpd-$($env:chocolateyPackageVersion)-x86-vc$vcNumber.zip" 
     url64bit = "http://www.apachehaus.com/downloads/httpd-$($env:chocolateyPackageVersion)-x64-vc$vcNumber.zip" 
     checksum = '9132c1aabdaacaf96895cb247f171c1ea4125eda';
     checksumType = 'sha1';
-    checksum64 = 'b6ac8fedebad36247baeaaebebcbd51a0e608e48';
+    checksum64 = '3064f9a2df8dd8a86a0c2619c5128eac58d3c0e4';
     checksumType64 = 'sha1';
 }
 
@@ -76,5 +76,3 @@ $options = @{
 }
 
 Export-CliXml -Path $optionsFile -InputObject $options
-
-
