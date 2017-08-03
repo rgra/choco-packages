@@ -121,6 +121,7 @@ if ([System.IO.File]::Exists($tarGzFile)) {
 Write-Debug "Downloading file $tarGzFile using System.Net.WebClient"
 $wc = New-Object System.Net.WebClient
 $wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie"); 
+$wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
 $wc.DownloadFile($url, $tarGzFile)
 Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
 # } # End native .NET block
