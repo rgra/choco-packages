@@ -16,7 +16,6 @@ $fileNameBase = "serverjre-$($majorVersion)_windows-x64_bin"
 $fileName = "$fileNameBase.tar.gz"
 
 $url = "http://download.oracle.com/otn-pub/java/jdk/$($majorVersion)+$($updateVersion)/$fileName"
-Write-Host "$url"
 #$url = "http://download.oracle.com/otn-pub/java/jdk/9+181/serverjre-9_windows-x64_bin.tar.gz
 
 $osBitness = Get-ProcessorBits
