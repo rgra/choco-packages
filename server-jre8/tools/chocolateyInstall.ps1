@@ -1,8 +1,8 @@
 ﻿$packageName = $env:chocolateyPackageName
 # The buildNumber should be easier to determine or pass from the nuspec
-$buildNumber = "11"
+$buildNumber = "01"
 $checksum = "20d5e1b2b4c789b6d0c378ffa9b2ff12448f31f0224ba482a338790cff18020a"
-
+$downloadHash = "090f390dda5b47b9b721c7dfaa008135"
 
 # Discard any -pre/-beta/-testing appended to avoid releasing an unfinished on Chocolatey.org
 $semanticVersion = $env:chocolateyPackageVersion.Split("-")[0]
@@ -18,8 +18,7 @@ $fileNameBase = "server-jre-$($majorVersion)u$($updateVersion)-windows-x64"
 $fileName = "$fileNameBase.tar.gz"
 
 # Oracle got clever and is throwing a hash/sessionID into the path
-#$url        = "http://download.oracle.com/otn-pub/java/jdk/$($majorVersion)u$($updateVersion)-b$buildNumber/$fileName"
-$url = "http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/server-jre-8u144-windows-x64.tar.gz"
+$url = "http://download.oracle.com/otn-pub/java/jdk/$($majorVersion)u$($updateVersion)-b$buildNumber/$($downloadHash)/$fileName"
 
 $osBitness = Get-ProcessorBits
 # 32-bit not supported
