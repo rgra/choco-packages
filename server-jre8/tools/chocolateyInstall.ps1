@@ -1,8 +1,8 @@
 ﻿$packageName = $env:chocolateyPackageName
 # The buildNumber should be easier to determine or pass from the nuspec
-$buildNumber = "01"
-$checksum = "20d5e1b2b4c789b6d0c378ffa9b2ff12448f31f0224ba482a338790cff18020a"
-$downloadHash = "090f390dda5b47b9b721c7dfaa008135"
+$buildNumber = "16"
+$checksum = "48d76164a69ba96c2fe1a132824d299775886e6790661399073c1724405b8e28"
+$downloadHash = "aa0333dd3019491ca4f6ddbe78cdb6d0"
 
 # Discard any -pre/-beta/-testing appended to avoid releasing an unfinished on Chocolatey.org
 $semanticVersion = $env:chocolateyPackageVersion.Split("-")[0]
