@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre</id>
-    <version>8.0.144</version>
+    <version>8.0.152</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
      <authors>Oracle</authors>
     <owners>rgra</owners>
@@ -14,15 +14,15 @@
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/server-jre</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <dependency id="server-jre8" version="8.0.144" />
+      <dependency id="server-jre8" version="8.0.152" />
    </dependencies>
    <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
-    <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer. 
+    <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer.
 
 ### Note
 
 This is just a metapackage for the latest Server JRE (currently Server JRE 8). Have a look at the [server-jre8 package](/packages/server-jre8) for more details.
-      
+
 ### Parameters (for server-jre8)
 
 The following package parameters can be set:
