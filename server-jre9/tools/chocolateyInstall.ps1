@@ -1,6 +1,7 @@
 ﻿$packageName = $env:chocolateyPackageName
 # The buildNumber should be easier to determine or pass from the nuspec
-$checksum = "24a6d3ab835895976f99851d1f2bc98c49ce1ffc481322d4574cc213be1c3d90"
+$buildNumber = "11"
+$checksum = "62b63d12b19e0b7291e8e8833e102abd6962a926b1a778c272adb74803e34e91"
 
 # Discard any -pre/-beta/-testing appended to avoid releasing an unfinished on Chocolatey.org
 $semanticVersion = $env:chocolateyPackageVersion.Split("-")[0]
@@ -12,11 +13,11 @@ $updateVersion = $versionArray[2]
 
 $folderVersion = "jdk1.$majorVersion.$($minorVersion)_$updateVersion"
 
-$fileNameBase = "serverjre-$($majorVersion)_windows-x64_bin"
+$fileNameBase = "serverjre-$($majorVersion).$($minorVersion).$($updateVersion)_windows-x64_bin"
 $fileName = "$fileNameBase.tar.gz"
 
-$url = "http://download.oracle.com/otn-pub/java/jdk/$($majorVersion)+$($updateVersion)/$fileName"
-#$url = "http://download.oracle.com/otn-pub/java/jdk/9+181/serverjre-9_windows-x64_bin.tar.gz
+$url = "http://download.oracle.com/otn-pub/java/jdk/$($majorVersion).$($minorVersion).$($updateVersion)+$($buildNumber)/$fileName"
+#$url = "http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/serverjre-9.0.1_windows-x64_bin.tar.gz"
 
 $osBitness = Get-ProcessorBits
 # 32-bit not supported
