@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre9</id>
-    <version>9.0.1</version>
+    <version>9.0.4</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
      <authors>Oracle</authors>
     <owners>rgra</owners>
@@ -14,13 +14,13 @@
     <bugTrackerUrl>http://bugs.java.com</bugTrackerUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
-    <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer. 
+    <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer.
 
 ### Note
 
 This package unpacks the Java Server JRE version offered at https://www.java.com to the default directory "C:\tools\Java\server-jre\jre1.9.0_{version}".
 
-If you wish to unpack to an alternate directory, use the `InstallationPath` parameter. Example: 
+If you wish to unpack to an alternate directory, use the `InstallationPath` parameter. Example:
 `choco install server-jre9 -PackageParameters "/InstallationPath:c:\Program Files" -y`
 
 The installation will also set the JAVA\_HOME environment variable to the destination directory if not present yet and add %JAVA\_HOME%/bin to the PATH environment.
