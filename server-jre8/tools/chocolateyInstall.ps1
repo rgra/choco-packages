@@ -1,8 +1,8 @@
 ﻿$packageName = $env:chocolateyPackageName
 # The buildNumber should be easier to determine or pass from the nuspec
-$buildNumber = "11"
-$checksum = "03b002d4590dba1bbc8e748c86e0bafe9981e56e68956b5c2ce6a88bef55e6f6"
-$downloadHash = "a58eab1ec242421181065cdc37240b08"
+$buildNumber = "13"
+$checksum = "7799b9007760663da32a3b177a0b9ea42ec268afaa69dcf8518cdce5136c3768"
+$downloadHash = "96a7b8442fe848ef90c96a2fad6ed6d1"
 
 # Discard any -pre/-beta/-testing appended to avoid releasing an unfinished on Chocolatey.org
 $semanticVersion = $env:chocolateyPackageVersion.Split("-")[0]
@@ -93,7 +93,7 @@ if ([System.IO.File]::Exists($tarGzFile)) {
     #Check sum of existing file
     Try {
         Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256 -ErrorAction Stop
-    } 
+    }
     Catch{
         Write-Debug "Checksum failed, deleting old file $tarGzFile"
         Remove-Item $tarGzFile
@@ -119,7 +119,7 @@ if ([System.IO.File]::Exists($tarGzFile)) {
 # Native .NET download for choco < 0.9.10
 Write-Debug "Downloading file $tarGzFile using System.Net.WebClient"
 $wc = New-Object System.Net.WebClient
-$wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie"); 
+$wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie");
 $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
 $wc.DownloadFile($url, $tarGzFile)
 Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
@@ -146,7 +146,7 @@ $newJavaHome = Join-Path $InstallationPath $folderVersion
 $oldJavaHome = Get-EnvironmentVariable "JAVA_HOME" $EnvVariableType
 
 if(($oldJavaHome -eq "") -or $ForceEnvVars) {
-   Write-Host "Setting JAVA_HOME to $newJavaHome" 
+   Write-Host "Setting JAVA_HOME to $newJavaHome"
    Install-ChocolateyEnvironmentVariable -variableName "JAVA_HOME" -variableValue $newJavaHome -variableType $EnvVariableType
 }
 else {
