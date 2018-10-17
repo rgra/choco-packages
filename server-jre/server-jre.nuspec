@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre</id>
-    <version>8.0.181</version>
+    <version>8.0.192</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
-     <authors>Oracle</authors>
+    <authors>Oracle</authors>
     <owners>rgra</owners>
     <licenseUrl>http://www.oracle.com/technetwork/java/javase/terms/license/index.html</licenseUrl>
     <projectUrl>http://www.java.com</projectUrl>
@@ -14,9 +14,9 @@
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/server-jre</packageSourceUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <dependency id="server-jre8" version="8.0.181" />
-   </dependencies>
-   <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
+      <dependency id="server-jre8" version="8.0.192" />
+    </dependencies>
+    <summary>The Server JRE includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in).</summary>
     <description>Server JRE (Server Java Runtime Environment) for deploying Java applications on servers. Includes tools for JVM monitoring and tools commonly required for server applications, but does not include browser integration (the Java plug-in), auto-update, nor an installer.
 
 ### Note
@@ -35,7 +35,7 @@ These parameters can be passed to the installer with the use of `--packageParame
 don't directly affect the virtual package, we need to add `--paramsglobal` to pass them to the target/dependent server-jre8.
 
 For example: `choco install server-jre --paramsglobal --packageParameters '"/InstallationPath:C:\tools\Java /Force /Machine"'`.
-</description>
+    </description>
     <releaseNotes>http://www.oracle.com/technetwork/java/javase/documentation/8u-relnotes-2225394.html</releaseNotes >
     <tags>java server runtime environment jre admin</tags>
   </metadata>
