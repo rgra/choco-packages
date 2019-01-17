@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre8</id>
-    <version>8.0.192</version>
+    <version>8.0.202</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
      <authors>Oracle</authors>
     <owners>rgra</owners>
@@ -39,7 +39,7 @@ These parameters can be passed to the installer with the use of `--packageParame
 
 For example: `choco install server-jre8 --packageParameters '"/InstallationPath:C:\tools\Java /Force /Machine"'`.
 </description>
-    <releaseNotes>http://www.oracle.com/technetwork/java/javase/documentation/8u-relnotes-2225394.html</releaseNotes >
+    <releaseNotes>https://www.oracle.com/technetwork/java/javase/8all-relnotes-2226344.html</releaseNotes >
     <tags>java server runtime environment jre admin</tags>
   </metadata>
 </package>
