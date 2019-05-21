@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>server-jre</id>
-    <version>8.0.202</version>
+    <version>8.0.212</version>
     <title>Server JRE (Java SE Runtime Environment)</title>
     <authors>Oracle</authors>
     <owners>rgra</owners>
@@ -12,7 +12,7 @@
     <iconUrl>http://cdn.rawgit.com/chocolatey/chocolatey-coreteampackages/50fd97744110dcbce1acde889c0870599c9d5584/icons/java.svg</iconUrl>
     <bugTrackerUrl>http://bugs.java.com</bugTrackerUrl>
     <packageSourceUrl>https://github.com/rgra/choco-packages/tree/master/server-jre</packageSourceUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <dependencies>
       <dependency id="server-jre8" version="8.0.202" />
     </dependencies>
@@ -22,6 +22,8 @@
 ### Note
 
 This is just a metapackage for the latest Server JRE (currently Server JRE 8). Have a look at the [server-jre8 package](/packages/server-jre8) for more details.
+
+*The Oracle JDK License has changed for releases starting April 16, 2019. Please only use this package if you have purchased a valid license for your environment.*
 
 ### Parameters (for server-jre8)
 
