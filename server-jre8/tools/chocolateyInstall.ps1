@@ -98,7 +98,7 @@ if ([System.IO.File]::Exists($tarGzFile)) {
         Write-Debug "Checksum failed, deleting old file $tarGzFile"
         Remove-Item $tarGzFile
     }
-}
+#}
 
 # Added some .NET code to remove the dependency on wget
 # If chocolatey >= 0.9.10 could use Get-ChocolateyWebFile with $options
@@ -115,15 +115,15 @@ if ([System.IO.File]::Exists($tarGzFile)) {
 #Get-ChocolateyWebFile -PackageName $packageName -FileFullPath $tarGzFile -Url $url -Checksum $checksum -ChecksumType SHA256 -Options $options
 # } # End Get-ChocolateyWebFile
 #
-# } else {
+} else {
 # Native .NET download for choco < 0.9.10
-Write-Debug "Downloading file $tarGzFile using System.Net.WebClient"
-$wc = New-Object System.Net.WebClient
-$wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie");
-$wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
-$wc.DownloadFile($url, $tarGzFile)
-Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
-# } # End native .NET block
+   Write-Debug "Downloading file $tarGzFile using System.Net.WebClient"
+   $wc = New-Object System.Net.WebClient
+   $wc.Headers.Add([System.Net.HttpRequestHeader]::Cookie, "oraclelicense=accept-securebackup-cookie");
+   $wc.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
+   $wc.DownloadFile($url, $tarGzFile)
+   Get-ChecksumValid -File $tarGzFile -Checksum $checksum -ChecksumType SHA256
+} # End native .NET block
 
 # Wget dependency block {
 #if (![System.IO.File]::Exists($tarGzFile)) {
